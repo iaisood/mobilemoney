@@ -55,13 +55,7 @@ jobs:
         if: always()       
 
 
-  functonaltesting:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Functional Testing
-        run: echo "Functional Testing"
-oast-npmscan:
+  oast-npmscan:
     runs-on: ubuntu-latest
     needs: test
     steps:
@@ -81,7 +75,8 @@ oast-npmscan:
           name: NPMAudit-Output-file
           path: npmaudit-output.json
         if: always()
-        
+
+
   deployment:
     runs-on: ubuntu-latest
     needs: functonaltesting
