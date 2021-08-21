@@ -54,7 +54,6 @@ oast-npmscan:
           name: NPMAudit-Output-file
           path: npmaudit-output.json
         if: always()
-
   build:
     runs-on: ubuntu-latest
     needs: oast-npmscan
