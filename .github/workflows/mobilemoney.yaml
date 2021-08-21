@@ -41,7 +41,7 @@ jobs:
   
   deployment:
     runs-on: ubuntu-latest
-    needs: oast-retire
+    needs: surge
     steps:
       - run: |
           echo "deployment Job is going on"
