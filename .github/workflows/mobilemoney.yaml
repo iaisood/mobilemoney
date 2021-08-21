@@ -12,11 +12,11 @@ jobs:
         run: apt-get install nmap -y
 
       - name: Scan the Domain
-        run: nmap ${{ secrets.SURGE_DOMAIN }} -oX nmap-output.xml
+        run: nmap ${{ secrets.SURGE_DOMAIN }} -oX nmap-output1.xml
 
       - name: Upload the Scan Report
         uses: actions/upload-artifact@v2
         with:
           name: nmap-results
-          path: nmap-output.xml
+          path: nmap-output1.xml
         if: always()   
