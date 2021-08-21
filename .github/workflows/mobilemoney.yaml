@@ -25,7 +25,6 @@ jobs:
       - name: npm install 
         run: npm install
       - name: start NPMq
-         exit 0
       - run: npm start
       - name: test module
         run: npm test| tee test-output.json
