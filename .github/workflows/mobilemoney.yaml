@@ -33,6 +33,7 @@ jobs:
         with:
           name: code-coverage-files
           path: coverage    
+
 oast-npmscan:
     runs-on: ubuntu-latest
     needs: unit-testing
@@ -82,8 +83,6 @@ oast-npmscan:
         run: echo "Functional Testing"
 
   
-
-
   deployment:
     runs-on: ubuntu-latest
     needs: functonaltesting
