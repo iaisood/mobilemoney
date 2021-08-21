@@ -62,8 +62,7 @@ jobs:
         run: echo "Functional Testing"
 
     deployment:
-    runs-on: ubuntu-latest
-    needs: functonaltesting
+        needs: functonaltesting
     steps:
       - name: Checkout the Code
         uses: actions/checkout@v2
