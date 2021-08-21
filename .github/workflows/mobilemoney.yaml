@@ -56,7 +56,7 @@ oast-npmscan:
 
   build:
     runs-on: ubuntu-latest
-    needs: code-coverage
+    needs: [code-coverage,oast-npmscan]
     steps:
       - name: Checkout the Code
         uses: actions/checkout@v2
