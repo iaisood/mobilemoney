@@ -21,7 +21,7 @@ jobs:
       - name: Clone the Repository
         uses: actions/checkout@v2
 
-      - name: start NPM
+      - name: start NPMq
         run: npm start
       - name: test module
         run: npm test| tee test-output.json
