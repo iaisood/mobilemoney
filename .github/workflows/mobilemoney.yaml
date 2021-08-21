@@ -1,1 +1,47 @@
-name: MobileMoney Build and Deployment Workflow
+name: DevSecOps Workflow for Mobilemoney
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Build Job is going on"
+          sleep 20
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: |
+          echo "test Job is going on"
+          sleep 20
+  surge:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Clone the Repository
+        uses: actions/checkout@v2
+
+      - name: start NPM
+        run: npm start
+      - name: test module
+        run: npm test| tee test-output.json
+
+      - name: build
+        run: npm run build | tee build-output.json
+        continue-on-error: true
+
+      - name: Upload the file Output file
+        uses: actions/upload-artifact@v2
+        with:
+          name: RetireJS-Output-File
+          path: retire-output.json
+        if: always()
+
+  
+  deployment:
+    runs-on: ubuntu-latest
+    needs: oast-retire
+    steps:
+      - run: |
+          echo "deployment Job is going on"
+          sleep 20
