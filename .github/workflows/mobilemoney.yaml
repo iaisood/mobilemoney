@@ -61,7 +61,30 @@ jobs:
     steps:
       - name: Functional Testing
         run: echo "Functional Testing"
+oast-retire:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Clone the Repository
+        uses: actions/checkout@v2
 
+      - name: Install Retire.JS
+        run: npm install -g retire
+
+      - name: Install Node Modules
+        run: npm install
+
+      - name: run Retire.JS Scan
+        run: | 
+          retire --outputformat json --outputpath retire-output.json
+        continue-on-error: true
+
+      - name: Upload the Retire.JS Output file
+        uses: actions/upload-artifact@v2
+        with:
+          name: RetireJS-Output-File
+          path: retire-output.json
+        if: always()
 
   deployment:
     runs-on: ubuntu-latest
