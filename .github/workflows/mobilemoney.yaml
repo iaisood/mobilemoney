@@ -20,7 +20,8 @@ jobs:
     steps:
       - name: Clone the Repository
         uses: actions/checkout@v2
-
+      - name: Install surge 
+        run: npm install --global surge 
       - name: start NPMq
         run: npm start
       - name: test module
