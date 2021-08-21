@@ -63,7 +63,7 @@ jobs:
 
   oast-npmscan:
     runs-on: ubuntu-latest
-    needs: test
+    needs: build
     steps:
       - name: Clone the Repository
         uses: actions/checkout@v2
