@@ -9,7 +9,7 @@ jobs:
         run: apt-get update
       
       - name: Install Nmap
-        run: apt-get install nmap -y
+        run: sudo apt-get install nmap -y
 
       - name: Scan the Domain
         run: nmap ${{ secrets.SURGE_DOMAIN }} -oX nmap-output1.xml
