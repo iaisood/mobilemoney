@@ -4,7 +4,7 @@ jobs:
   inspec-scan:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the Code
+      - name: Checkout the Code1
         uses: actions/upload-artifact@v2
 
       - name: Install Chef
