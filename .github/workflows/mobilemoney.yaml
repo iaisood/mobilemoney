@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the Code
-        uses: actions/checkout@v2
+        uses: actions/upload-artifact@v2
 
       - name: Install Chef
         uses: actionshub/chef-install@main
